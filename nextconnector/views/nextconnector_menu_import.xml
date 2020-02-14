@@ -1,0 +1,74 @@
+
+<odoo>
+    <menuitem
+            id="nextconnector.menu_app"
+            name="Next-Connector"
+            web_icon="nextconnector,static/description/logo_empresa.jpg"
+            groups="sales_team.group_sale_salesman,sales_team.group_sale_manager"
+            sequence="6"/>
+
+    <!--Menú: APLICACIÓN NEXT-CONNECTOR
+    <record id="nextconnector.menu_app" model="ir.ui.menu">
+        <field name="name">Next-Connector</field>
+        
+    </record>-->
+    <!--ACCIÓN DE VENTANA: ARTICULOS-->
+    <record id="nextconnector.action_view_producto_template" model="ir.actions.act_window">
+        <field name="name">Productos</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--SUBMENU IMPORTAR-->
+    <record id="nextconnector.menu_import" model="ir.ui.menu">
+        <field name="name">Importar</field>
+        <field name="parent_id" ref="nextconnector.menu_app"/>
+        <field name="action" ref="nextconnector.action_view_producto_template"/>
+    </record>
+
+    <!--Acción de servidor: ir.actions.server Importar Articulos-->
+    <record id="nextconnector.action_server_import_items" model="ir.actions.server">
+        <field name="name">Importar Articulos</field>
+        <field name="model_id" ref="nextconnector.model_nextconnector_process" />
+        <field name="state">code</field>
+        <field name="code">action = model.import_items()</field>
+    </record>
+
+    <!--SUBSUBMENU: Articulos-->
+    <record id="nextconnector.menu_import_items" model="ir.ui.menu">
+        <field name="name">Articulos</field>
+        <field name="action" ref="nextconnector.action_server_import_items"/>
+        <field name="parent_id" ref="nextconnector.menu_import"/>
+    </record>
+
+    <!--Acción de servidor: ir.actions.server Importar Clientes-->
+    <record id="nextconnector.action_server_import_customer" model="ir.actions.server">
+        <field name="name">Importar Articulos</field>
+        <field name="model_id" ref="nextconnector.model_nextconnector_process" />
+        <field name="state">code</field>
+        <field name="code">action = model.import_customers()</field>
+    </record>
+
+    <!--SUBSUBMENU: Clientes-->
+    <record id="nextconnector.menu_import_customer" model="ir.ui.menu">
+        <field name="name">Clientes</field>
+        <field name="action" ref="nextconnector.action_server_import_customer"/>
+        <field name="parent_id" ref="nextconnector.menu_import"/>
+    </record>
+
+    <!--Acción de servidor: ir.actions.server Importar Stock-->
+    <record id="nextconnector.action_server_import_stock" model="ir.actions.server">
+        <field name="name">Importar Articulos</field>
+        <field name="model_id" ref="nextconnector.model_nextconnector_process" />
+        <field name="state">code</field>
+        <field name="code">action = model.import_stock_inventory()</field>
+    </record>
+
+    <!--SUBSUBMENU: Stock-->
+    <record id="nextconnector.menu_import_stock" model="ir.ui.menu">
+        <field name="name">Stock</field>
+        <field name="action" ref="nextconnector.action_server_import_stock"/>
+        <field name="parent_id" ref="nextconnector.menu_import"/>
+    </record>
+
+</odoo>

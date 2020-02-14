@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>	
+	
+	
+	<record id="nextconnector_popup_message" model="ir.ui.view">
+		<field name="name">nextconnector.popup.message</field>
+		<field name="model">nextconnector.popup.message</field>
+		<field name="arch" type="xml">
+			<form string="Message">
+				<field name="name"/>
+			
+				<footer>
+					<button string="OK" class="btn-primary" special="cancel" />
+				</footer>				
+					
+				
+			</form>
+		</field>	
+	</record>
+
+</data>
+</odoo>

@@ -1,0 +1,24 @@
+
+<odoo>
+    
+    <!-- ACCIONES AUTOMATIZADA -->
+    <record id="base_automation_create_or_update_res_partner" model="base.automation">
+        <field name="name">NextConnector - Customer</field>
+        <field name="trigger">on_create_or_write</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="state">code</field>
+        <field name="code"> action = record.synchronize_customer()</field>
+    </record>
+
+    <record id="base_automation_create_or_update_sale_order" model="base.automation">
+        <field name="name">NextConnector - Sale Order</field>
+        <field name="trigger">on_create_or_write</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="state">code</field>
+        <field name="code">
+        if record.state == 'sale':
+            action = record.synchronize_record()
+        </field>
+    </record>
+    
+</odoo>

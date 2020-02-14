@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_nextconnector_sales_rep_form" model="ir.ui.view">
+        <field name="name">Form view Nextconnector Sales Rep</field>
+        <field name="model">nextconnector.sales_rep</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+                <field name="nxt_id_erp"/>
+                <field name="nxt_user"/>
+                <field name="nxt_name"/>
+        </field>
+    </record>
+
+</odoo>

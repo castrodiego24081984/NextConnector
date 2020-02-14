@@ -1,0 +1,25 @@
+
+<odoo>
+
+    <!--ACCIÓN DE VENTANA: CATEGORIA-->
+    <record id="nextconnector.action_view_sales_rep" model="ir.actions.act_window">
+        <field name="name">nxt act view sales rep</field>
+        <field name="res_model">nextconnector.sales_rep</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <!--SUBMENU DATOS MAESTROS-->
+    <record id="nextconnector.menu_master_data" model="ir.ui.menu">
+        <field name="name">Datos maestros</field>
+        <field name="parent_id" ref="nextconnector.menu_app"/>
+        <field name="action" ref="nextconnector.action_view_sales_rep"/>
+    </record>
+
+    <!--SUBSUBMENU: VENDEDORES-->
+    <record id="nextconnector.menu_master_data_sales_rep" model="ir.ui.menu">
+        <field name="name">Vendedores</field>
+        <field name="action" ref="nextconnector.action_view_sales_rep"/>
+        <field name="parent_id" ref="nextconnector.menu_master_data"/>
+    </record>
+    
+</odoo>
